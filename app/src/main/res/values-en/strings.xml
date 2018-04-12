@@ -15,7 +15,7 @@
     <string name="polybe_key">Keyword for the Polybius square:</string>
     <string name="polybe_replace">Letter to replace:</string>
     <string name="default_polybe_replace">j</string>
-    <string name="delastelle_bloc_size">Blocks of letters size:</string>
+    <string name="delastelle_bloc_size">Block size:</string>
     <string name="default_delastelle_bloc_size">4</string>
     <string name="des_input">64-bit hexadecimal message to encrypt / decrypt:</string>
     <string name="des_key">64-bit hexadecimal key:</string>
