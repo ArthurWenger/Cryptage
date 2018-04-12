@@ -30,6 +30,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:maxLength="18"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvLabelInput"/>
@@ -52,6 +53,7 @@
         android:ems="10"
         android:imeOptions="actionDone"
         android:inputType="textPersonName"
+        android:maxLength="18"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/etInput"

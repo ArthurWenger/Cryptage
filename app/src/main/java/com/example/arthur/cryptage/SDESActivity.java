@@ -110,12 +110,10 @@ public class SDESActivity extends AppCompatActivity {
                 s = s.substring(2);
             }
         }
-        if(s.length() >=16){ // quel que soit la taille du nombre on le converti en type int
-            return new BigInteger(s, 16).intValue();
-        } else if (s.length() >= 8){
-            return (int) Long.parseLong(s,16);
-        } else
-            return Integer.parseInt(s, 16);
+        if(s.length() >3){ // quel que soit la taille du nombre saisi, on recupère seulement les 12 derniers bits
+            s = s.substring(s.length()-3);
+        }
+        return Integer.parseInt(s, 16); // meme si la clé est sur plus de 9 bits, les bits en trop seront tronqués pendant la génération des sous-clés
     }
 
     /*
