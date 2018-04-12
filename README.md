@@ -5,7 +5,7 @@ Ces algorithmes comprennent notamment:
 - Atbash
 - César
 - Vigénère
-- Polybe
+- Le carré de Polybe
 - Playfair
 - Hill
 - Transposition rectangulaire
