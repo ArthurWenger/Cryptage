@@ -1,6 +1,6 @@
 # Cryptage
 
-Implementation de 10 algorithmes de cryptage sur Android.<br/>
+Implementation de 10 algorithmes de cryptographie sur Android.<br/>
 Ces algorithmes comprennent notamment:
 - Atbash
 - César
