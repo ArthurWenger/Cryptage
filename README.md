@@ -8,7 +8,7 @@ Ces algorithmes comprennent notamment:
 - Le carré de Polybe
 - Playfair
 - Hill
-- Transposition rectangulaire
+- La Transposition rectangulaire
 - Delastelle
 - SDES
 - DES
