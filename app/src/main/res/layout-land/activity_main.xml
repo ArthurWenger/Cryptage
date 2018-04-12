@@ -1,179 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.arthur.cryptage.MainActivity"
+    android:orientation="vertical"
     android:background="#363636">
 
+    <LinearLayout
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
 
     <Button
         android:id="@+id/btAtbash"
         android:layout_width="120dp"
         android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="32dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
         android:onClick="showAtbash"
         android:text="@string/atbash"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="16dp" />
 
     <Button
         android:id="@+id/btCesar"
         android:layout_width="120dp"
         android:layout_height="50dp"
-        android:layout_above="@id/btVigenere"
-        android:layout_centerHorizontal="true"
-        android:layout_marginEnd="32dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginRight="16dp"
         android:onClick="showCesar"
         android:text="@string/cesar"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btAtbash"
-        app:layout_constraintTop_toTopOf="@+id/btAtbash" />
+        app:layout_constraintTop_toTopOf="@+id/btAtbash"
+        android:layout_marginEnd="16dp" />
 
     <Button
         android:id="@+id/btVigenere"
         android:layout_width="120dp"
         android:layout_height="50dp"
-        android:layout_above="@id/btPolybe"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
+        android:layout_marginRight="16dp"
         android:onClick="showVigenere"
         android:text="@string/vigenere"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/btAtbash"
-        app:layout_constraintTop_toBottomOf="@+id/btAtbash" />
+        app:layout_constraintStart_toEndOf="@+id/btCesar"
+        app:layout_constraintTop_toTopOf="@+id/btCesar"
+        android:layout_marginEnd="16dp" />
 
     <Button
         android:id="@+id/btPolybe"
         android:layout_width="120dp"
+        android:layout_marginRight="16dp"
         android:layout_height="50dp"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
         android:onClick="showPolybe"
         android:text="@string/polybe"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/btCesar"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btVigenere"
-        app:layout_constraintTop_toTopOf="@+id/btVigenere" />
+        app:layout_constraintTop_toTopOf="@+id/btVigenere"
+        android:layout_marginEnd="16dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
 
     <Button
         android:id="@+id/btPlayfair"
         android:layout_width="120dp"
         android:layout_height="50dp"
-        android:layout_below="@id/btPolybe"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
         android:onClick="showPlayfair"
         android:text="@string/playfair"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/btVigenere"
-        app:layout_constraintTop_toBottomOf="@+id/btVigenere" />
+        android:layout_marginEnd="16dp" />
 
     <Button
         android:id="@+id/btHill"
         android:layout_width="120dp"
         android:layout_height="50dp"
-        android:layout_below="@id/btPlayfair"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginRight="16dp"
         android:onClick="showHill"
         android:text="@string/hill"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/btPolybe"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/btPlayfair"
-        app:layout_constraintTop_toTopOf="@+id/btPlayfair" />
+        android:layout_marginEnd="16dp" />
 
     <Button
         android:id="@+id/btTRect"
         android:layout_width="120dp"
         android:layout_height="50dp"
-        android:layout_below="@id/btHill"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
+        android:layout_marginRight="16dp"
         android:onClick="showTRect"
         android:text="@string/trect"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/btPlayfair"
-        app:layout_constraintTop_toBottomOf="@+id/btPlayfair" />
+        android:layout_marginEnd="16dp" />
 
     <Button
         android:id="@+id/btDelastelle"
         android:layout_width="120dp"
         android:layout_height="50dp"
-        android:layout_below="@id/btHill"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginRight="16dp"
         android:onClick="showDelastelle"
         android:text="@string/delastelle"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/btHill"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/btTRect"
-        app:layout_constraintTop_toTopOf="@+id/btTRect" />
+        android:layout_marginEnd="16dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
 
     <Button
         android:id="@+id/btDES"
         android:layout_width="120dp"
         android:layout_height="50dp"
-        android:layout_below="@id/btTRect"
-        android:layout_centerHorizontal="true"
+        android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
+        android:onClick="showDES"
         android:text="DES"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/btDelastelle"
-        app:layout_constraintHorizontal_bias="1.0"
-        android:onClick="showDES"
-        app:layout_constraintStart_toEndOf="@+id/btSDES"
-        app:layout_constraintTop_toTopOf="@+id/btSDES" />
+        app:layout_constraintStart_toStartOf="@+id/btHill"
+        app:layout_constraintTop_toTopOf="@+id/btSDES"
+        android:layout_marginEnd="16dp" />
 
     <Button
         android:id="@+id/btSDES"
         android:layout_width="120dp"
         android:layout_height="50dp"
-        android:layout_below="@id/btTRect"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
+        android:layout_marginRight="16dp"
+        android:onClick="showSDES"
         android:text="SDES"
         android:textStyle="bold"
-        android:onClick="showSDES"
-        app:layout_constraintStart_toStartOf="@+id/btTRect"
-        app:layout_constraintTop_toBottomOf="@+id/btTRect" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btPlayfair"
+        app:layout_constraintTop_toBottomOf="@+id/btPlayfair"
+        android:layout_marginEnd="16dp" />
 
     <Button
         android:id="@+id/btExit"
         android:layout_width="120dp"
         android:layout_height="50dp"
-        android:layout_below="@id/btTRect"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="32dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginRight="16dp"
         android:onClick="exitApp"
         android:text="@string/exit"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btDES" />
-</android.support.constraint.ConstraintLayout>
+        app:layout_constraintStart_toStartOf="@+id/btTRect"
+        app:layout_constraintTop_toTopOf="@+id/btDES"
+        android:layout_marginEnd="16dp" />
+    </LinearLayout>
+</LinearLayout>
