@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Encryption</string>
+
+    <string-array name="codec_array">
+        <item>Encrypt</item>
+        <item>Decrypt</item>
+    </string-array>
+    <string name="title_activity_trect">TRectActivity</string>
+    <string name="alphabet_etendu">Expanded alphabet:</string>
+    <string name="result">Result:</string>
+    <string name="crypt">Encrypter</string>
+    <string name="generic_input">Text to encrypt / decrypt:</string>
+    <string name="key">Key:</string>
+    <string name="polybe_key">Keyword for the Polybius square:</string>
+    <string name="polybe_replace">Letter to replace:</string>
+    <string name="default_polybe_replace">j</string>
+    <string name="delastelle_bloc_size">Blocks of letters size:</string>
+    <string name="default_delastelle_bloc_size">4</string>
+    <string name="des_input">64-bit hexadecimal message to encrypt / decrypt:</string>
+    <string name="des_key">64-bit hexadecimal key:</string>
+    <string name="hill_matrix_size">Matrix size:</string>
+    <string name="default_hill_matrix_size">3</string>
+    <string name="hill_list_values">Matrix values:</string>
+    <string name="atbash">Atbash</string>
+    <string name="cesar">Cesar</string>
+    <string name="vigenere">Vigenere</string>
+    <string name="polybe">Polybe</string>
+    <string name="playfair">Playfair</string>
+    <string name="hill">Hill</string>
+    <string name="trect">Rectangular transposition</string>
+    <string name="delastelle">Delastelle</string>
+    <string name="exit">Exit</string>
+    <string name="sdes_input">12-bit hexadecimal message to encrypt / decrypt:</string>
+    <string name="sdes_key">9-bit hexadecimal key:</string>
+    <string name="sdes_rounds">Number of rounds:</string>
+    <string name="sdes_default_rounds">2</string>
+</resources>
