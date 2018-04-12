@@ -1,14 +1,14 @@
 # Cryptage
 
-Implementation de 10 algorithmes de cryptage sur Android.
+Implementation de 10 algorithmes de cryptographie sur Android.<br/>
 Ces algorithmes comprennent notamment:
 - Atbash
 - César
 - Vigénère
-- le carré de Polybe
+- Le carré de Polybe
 - Playfair
 - Hill
-- Transposition rectangulaire
+- La Transposition rectangulaire
 - Delastelle
 - SDES
 - DES
