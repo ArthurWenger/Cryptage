@@ -22,6 +22,7 @@ public class TRectActivity extends AppCompatActivity {
 	private EditText mEtKey; // clé permettant de construire le tableau de transposition
 	private TextView mTvRes; // resultat du cryptage ou du décryptage
 	private Button mBtRun; // bouton executant l'algorithme de cryptage / décryptage
+    boolean crypt = true; // valeur booleene égale à vrai si on code et faux si on decode
 
 	@Override
 	protected void onCreate( Bundle savedInstanceState ) {
@@ -39,12 +40,16 @@ public class TRectActivity extends AppCompatActivity {
 		mSpinnerCodec.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 			@Override
 			public void onItemSelected( AdapterView<?> parent, View view, int position, long id ) {
-				String selectedItem = parent.getItemAtPosition( position ).toString();
-				if ( selectedItem.equals( "Coder" ) ) {
-					mBtRun.setText( "Coder" );
-				} else {
-					mBtRun.setText( "Décoder" );
-				}
+                String selectedItem = parent.getItemAtPosition( position ).toString();
+                String code = getString(R.string.code );
+                String decode = getString(R.string.decode );
+                if ( selectedItem.equals( code )) {
+                    mBtRun.setText( code );
+                    crypt = true;
+                } else {
+                    mBtRun.setText(decode );
+                    crypt = false;
+                }
 			}
 
 			@Override
@@ -63,15 +68,7 @@ public class TRectActivity extends AppCompatActivity {
 				Toast.makeText(this, "La clé doit être un mot ou une phrase", Toast.LENGTH_LONG).show();
 				return;
 			}
-            String res;
-
-            if (codec.equals( "Décoder" ) ){
-                res = decodeTRect(input, key); // on décode le message
-            } else {
-                getColumnOrder(key);
-                res = codeTRect(input, key); // on code le message
-            }
-
+			String res = crypt ? codeTRect(input, key) : decodeTRect(input, key); // on code ou on décode le message en focntion de l'option choisie
             mTvRes.setText( res );
         });
 	}

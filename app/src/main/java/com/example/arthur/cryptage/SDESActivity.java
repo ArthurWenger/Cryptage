@@ -44,6 +44,7 @@ public class SDESActivity extends AppCompatActivity {
     private EditText mEtRondes; // le nombre de rondes du DES simplifié
     private TextView mTvRes;
     private Button mBtRun;
+    boolean crypt = true; // valeur booleene égale à vrai si on code et faux si on decode
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,10 +64,14 @@ public class SDESActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id ) {
                 String selectedItem = parent.getItemAtPosition( position ).toString();
-                if ( selectedItem.equals( "Coder" ) ) {
-                    mBtRun.setText( "Coder" );
+                String code = getString(R.string.code );
+                String decode = getString(R.string.decode );
+                if ( selectedItem.equals( code )) {
+                    mBtRun.setText( code );
+                    crypt = true;
                 } else {
-                    mBtRun.setText( "Décoder" );
+                    mBtRun.setText(decode );
+                    crypt = false;
                 }
             }
 
@@ -93,8 +98,6 @@ public class SDESActivity extends AppCompatActivity {
                 Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
                 return;
             }
-
-            boolean crypt = !codec.equals("Décoder"); // valeur booleene égale à vrai si on code et faux si on decode
             int res = SDES(hexInput, hexKey, numRondes, crypt); // on execute SDES avec la clé et le message saisie par l'utilisateur
 
             String strRes = "0x"+ Integer.toHexString(res) + " = "+ Integer.toBinaryString(res);

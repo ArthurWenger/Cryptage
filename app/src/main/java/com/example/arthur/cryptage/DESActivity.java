@@ -157,6 +157,7 @@ public class DESActivity extends AppCompatActivity {
     private EditText mEtKey; // clé en hexa sur 64 bits
     private TextView mTvRes; // resultat du cryptage ou du décryptage
     private Button mBtRun; // bouton executant l'algorithme de cryptage / décryptage
+    boolean crypt = true; // valeur booleene égale à vrai si on code et faux si on decode
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -175,10 +176,14 @@ public class DESActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id ) {
                 String selectedItem = parent.getItemAtPosition( position ).toString();
-                if ( selectedItem.equals( "Coder" ) ) {
-                    mBtRun.setText( "Coder" );
+                String code = getString(R.string.code );
+                String decode = getString(R.string.decode );
+                if ( selectedItem.equals( code )) {
+                    mBtRun.setText( code );
+                    crypt = true;
                 } else {
-                    mBtRun.setText( "Décoder" );
+                    mBtRun.setText(decode );
+                    crypt = false;
                 }
             }
 
@@ -188,7 +193,6 @@ public class DESActivity extends AppCompatActivity {
 
         mBtRun.setOnClickListener(view -> {
             String input = mEtInput.getText().toString();
-            String codec = mBtRun.getText().toString();
             String key = mEtKey.getText().toString();
             long hexInput;
             long hexKey;
@@ -200,8 +204,6 @@ public class DESActivity extends AppCompatActivity {
                 Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
                 return;
             }
-
-            boolean crypt = !codec.equals("Décoder"); // valeur booleene égale à vrai si on code et faux si on decode
             long res = DES(hexInput, hexKey, crypt); // on execute DES avec la clé et le message saisie par l'utilisateur
 
             String strRes = "0x"+Long.toHexString(res) + " = "+ Long.toBinaryString(res);

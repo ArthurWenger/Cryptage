@@ -2,8 +2,8 @@
     <string name="app_name">Cryptage</string>
 
     <string-array name="codec_array">
-        <item>Coder</item>
-        <item>Décoder</item>
+        <item>@string/code</item>
+        <item>@string/decode</item>
     </string-array>
     <string name="title_activity_trect">TRectActivity</string>
     <string name="alphabet_etendu">Alphabet étendu:</string>
@@ -34,4 +34,6 @@
     <string name="sdes_key">Clé en hexadécimal sur 9 bits:</string>
     <string name="sdes_rounds">Nombre de rondes:</string>
     <string name="sdes_default_rounds">2</string>
+    <string name="code">Coder</string>
+    <string name="decode">Décoder</string>
 </resources>

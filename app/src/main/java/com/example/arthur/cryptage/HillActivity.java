@@ -23,6 +23,7 @@ public class HillActivity extends AppCompatActivity {
     private Button mBtRun; // bouton executant l'algorithme de cryptage / décryptage
     TableLayout table; // table contenant un ensemble de champs de texte sous la forme d'un carré représentant la matrice
     float scale;
+    boolean crypt = true; // valeur booleene égale à vrai si on code et faux si on decode
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +44,14 @@ public class HillActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id ) {
                 String selectedItem = parent.getItemAtPosition( position ).toString();
-                if ( selectedItem.equals( "Coder" ) ) {
-                    mBtRun.setText( "Coder" );
+                String code = getString(R.string.code );
+                String decode = getString(R.string.decode );
+                if ( selectedItem.equals( code )) {
+                    mBtRun.setText( code );
+                    crypt = true;
                 } else {
-                    mBtRun.setText( "Décoder" );
+                    mBtRun.setText(decode );
+                    crypt = false;
                 }
             }
             @Override
@@ -87,7 +92,6 @@ public class HillActivity extends AppCompatActivity {
                 Toast.makeText(this, "Il manque des valeurs dans la matrice que vous avez saisie", Toast.LENGTH_LONG).show();
                 return;
             }
-            boolean crypt = !codec.equals("Décoder");
             try {
                 mTvRes.setText( Hill(input, A, crypt) ); // on décode ou on code le message avec l'algorithme de Hill
             } catch (Exception e) {

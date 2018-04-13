@@ -24,6 +24,7 @@ public class DelastelleActivity extends AppCompatActivity {
     private TextView mTvRes; // resultat du cryptage ou du décryptage
 	private Button mBtRun; // bouton executant l'algorithme de cryptage / décryptage
     private Polybe polybe; // classe modélisant un carré de Polybe
+    boolean crypt = true; // valeur booleene égale à vrai si on code et faux si on decode
 
     @Override
 	protected void onCreate( Bundle savedInstanceState ) {
@@ -42,12 +43,16 @@ public class DelastelleActivity extends AppCompatActivity {
 		mSpinnerCodec.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 			@Override
 			public void onItemSelected( AdapterView<?> parent, View view, int position, long id ) {
-				String selectedItem = parent.getItemAtPosition( position ).toString();
-				if ( selectedItem.equals( "Coder" ) ) {
-					mBtRun.setText( "Coder" );
-				} else {
-					mBtRun.setText( "Décoder" );
-				}
+                String selectedItem = parent.getItemAtPosition( position ).toString();
+                String code = getString(R.string.code );
+                String decode = getString(R.string.decode );
+                if ( selectedItem.equals( code )) {
+                    mBtRun.setText( code );
+                    crypt = true;
+                } else {
+                    mBtRun.setText(decode );
+                    crypt = false;
+                }
 			}
 			@Override
 			public void onNothingSelected( AdapterView<?> adapterView ) {
@@ -89,13 +94,7 @@ public class DelastelleActivity extends AppCompatActivity {
                 return;
             }
             polybe = new Polybe(key, replace); // on initialise un carré de Polybe avec le mot clé et la lettre de remplacement
-            String res;
-
-            if (codec.equals( "Décoder" ) ){ // si l'option de décodage est selectionnée
-                res = decodeDelastelle(input, blocSize); // on décode le message
-            } else { // sinon on code le message
-                res = codeDelastelle(input, blocSize);
-            }
+            String res = crypt ? codeDelastelle(input, blocSize) : decodeDelastelle(input, blocSize); // on decode ou on code le message en fonctiond e l'option selectionnée
             mTvRes.setText( res ); // on affiche le résultat du codage ou du décodage
         });
 	}

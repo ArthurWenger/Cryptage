@@ -19,6 +19,7 @@ public class VigenereActivity extends AppCompatActivity {
 	private TextView mTvRes; // resultat du cryptage ou du décryptage
 	private Button mBtRun; // bouton executant l'algorithme de cryptage / décryptage
 	private Switch mSwEtendu; // alphabet standard (97-122) ou étendu (32-126)
+    int crypt = 1; // valeur booleene égale à vrai si on code et faux si on decode
 
 	@Override
 	protected void onCreate( Bundle savedInstanceState ) {
@@ -37,12 +38,16 @@ public class VigenereActivity extends AppCompatActivity {
 		mSpinnerCodec.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 			@Override
 			public void onItemSelected( AdapterView<?> parent, View view, int position, long id ) {
-				String selectedItem = parent.getItemAtPosition(position).toString();
-				if(selectedItem.equals("Coder")){
-					mBtRun.setText( "Coder" );
-				} else {
-					mBtRun.setText( "Décoder" );
-				}
+                String selectedItem = parent.getItemAtPosition( position ).toString();
+                String code = getString(R.string.code );
+                String decode = getString(R.string.decode );
+                if ( selectedItem.equals( code )) {
+                    mBtRun.setText( code );
+                    crypt = 1;
+                } else {
+                    mBtRun.setText(decode );
+                    crypt = -1;
+                }
 			}
 
 			@Override
@@ -63,7 +68,6 @@ public class VigenereActivity extends AppCompatActivity {
             }
             String res = null;
             try {
-                int crypt = codec.equals( "Coder" ) ? 1 : -1;
                 res = algoVigenere(input, key, crypt ); // on décode ou on code le message avec le mot clé spécifié
             } catch (Exception e) {
                 Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();

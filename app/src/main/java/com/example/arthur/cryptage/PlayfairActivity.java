@@ -20,6 +20,7 @@ public class PlayfairActivity extends AppCompatActivity {
 	private Button mBtRun; // bouton executant l'algorithme de cryptage / décryptage
 	private EditText mEtLetter; // lettre à remplacer dans le carré
 	private Polybe polybe; // classe modélisant un carré de Polybe
+	boolean crypt = true; // valeur booleene égale à vrai si on code et faux si on decode
 
 	protected void onCreate( Bundle savedInstanceState ) {
 		super.onCreate( savedInstanceState );
@@ -45,12 +46,16 @@ public class PlayfairActivity extends AppCompatActivity {
 		mSpinnerCodec.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 			@Override
 			public void onItemSelected( AdapterView<?> parent, View view, int position, long id ) {
-				String selectedItem = parent.getItemAtPosition( position ).toString();
-				if ( selectedItem.equals( "Coder" ) ) {
-					mBtRun.setText( "Coder" );
-				} else {
-					mBtRun.setText( "Décoder" );
-				}
+                String selectedItem = parent.getItemAtPosition( position ).toString();
+                String code = getString(R.string.code );
+                String decode = getString(R.string.decode );
+                if ( selectedItem.equals( code )) {
+                    mBtRun.setText( code );
+                    crypt = true;
+                } else {
+                    mBtRun.setText(decode );
+                    crypt = false;
+                }
 			}
 
 			@Override
@@ -77,7 +82,7 @@ public class PlayfairActivity extends AppCompatActivity {
             polybe = new Polybe(key, replace); // on initialise un carré de Polybe avec le mot clé et la lettre de remplacement
             String res;
 
-            if (codec.equals( "Décoder" )){ // si l'option de décodage est selectionnée
+            if (!crypt){ // si l'option de décodage est selectionnée
                 if(input.length()%2==1) { // si la taille du message n'est pas un multiple de 2 on affiche une erreur
 					Toast.makeText(this, "Décodage avec un message de longueur impaire.\nVérifiez le message codé.", Toast.LENGTH_LONG).show();
                     return;
