@@ -66,7 +66,7 @@ public class PlayfairActivity extends AppCompatActivity {
 		mBtRun.setOnClickListener(view -> {
             String input = StringOperations.getOnlyLetters(mEtInput.getText().toString());
             if(input.isEmpty()){ // si le message est vide on affiche une erreur
-                Toast.makeText(this, "Le message à coder ou à décoder doit être un mot ou une phrase", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.input_missing_word, Toast.LENGTH_LONG).show();
                 return;
             }
             String codec = mBtRun.getText().toString();
@@ -75,7 +75,7 @@ public class PlayfairActivity extends AppCompatActivity {
             String key = mEtKey.getText().toString();
             String strReplace = StringOperations.getOnlyLetters(mEtLetter.getText().toString());
             if(strReplace.isEmpty()){ // si le champs contenant la lettre à remplacer est vide on affiche une erreur (champs vide ou champs contenant un caractère spécial)
-                Toast.makeText(this, "La lettre à remplacer dans le carré de polybe est incorrecte", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.letter_missing, Toast.LENGTH_LONG).show();
                 return;
             }
             char replace = strReplace.charAt(0);
@@ -84,7 +84,7 @@ public class PlayfairActivity extends AppCompatActivity {
 
             if (!crypt){ // si l'option de décodage est selectionnée
                 if(input.length()%2==1) { // si la taille du message n'est pas un multiple de 2 on affiche une erreur
-					Toast.makeText(this, "Décodage avec un message de longueur impaire.\nVérifiez le message codé.", Toast.LENGTH_LONG).show();
+					Toast.makeText(this, R.string.input_not_even, Toast.LENGTH_LONG).show();
                     return;
                 }
                 res = decodePlayfair(input); // sinon on décode le message

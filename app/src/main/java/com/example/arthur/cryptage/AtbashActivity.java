@@ -28,7 +28,7 @@ public class AtbashActivity extends AppCompatActivity {
 		mBtRun.setOnClickListener(view -> {
             String input = mEtInput.getText().toString();
             if(input.isEmpty()){ // si le message est vide on affiche une erreur
-                Toast.makeText(this, "Veuillez saisir un message à coder ou décoder", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.input_missing, Toast.LENGTH_LONG).show();
                 return;
             }
             try {

@@ -57,13 +57,13 @@ public class VigenereActivity extends AppCompatActivity {
 		mBtRun.setOnClickListener(view -> {
             String input = mEtInput.getText().toString();
             if(input.isEmpty()){ // si le message est vide on affiche une erreur
-                Toast.makeText(this, "Veuillez saisir un message à coder ou décoder", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.input_missing, Toast.LENGTH_LONG).show();
                 return;
             }
             String codec = mBtRun.getText().toString();
             String key = mEtKey.getText().toString();
             if(key.isEmpty()){ // si la clé est vide on affiche une erreur
-                Toast.makeText(this, "Veuillez saisir une clé", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.key_missing, Toast.LENGTH_LONG).show();
                 return;
             }
             String res = null;

@@ -72,24 +72,24 @@ public class HillActivity extends AppCompatActivity {
         mBtRun.setOnClickListener(view -> {
             String input = StringOperations.getOnlyLetters(mEtInput.getText().toString());
             if(input.isEmpty()){ // si le message est vide on affiche une erreur
-                Toast.makeText(this, "Le message à coder ou décoder doit être un mot ou une phrase", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.input_missing_word, Toast.LENGTH_LONG).show();
                 return;
             }
             String codec = mBtRun.getText().toString();
             String strSize = mEtMatSize.getText().toString();
             if(strSize.isEmpty()) { // si le champs contenant la taille de la matrice est n'est pas vide
-                Toast.makeText(this, "Veuillez saisir une taille pour la matrice carrée représentant la clé", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.matrix_size_missing, Toast.LENGTH_LONG).show();
                 return;
             }
             int size = Integer.parseInt(strSize);
             if(size == 0) { // si la taille de la matrice est 0 on affiche une erreur
-                Toast.makeText(this, "La taille de la matrice ne peut être 0...", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.matrix_size_0, Toast.LENGTH_LONG).show();
                 return;
             }
             int[][] A;
             try{ A = getKeyMatrix(size); } // on recupère la matrice à partir de la table contenant les EditText
             catch (NumberFormatException e){ // s'il manque des valeurs dans la matrice on affiche une erreur
-                Toast.makeText(this, "Il manque des valeurs dans la matrice que vous avez saisie", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.matrix_value_missing, Toast.LENGTH_LONG).show();
                 return;
             }
             try {
@@ -151,9 +151,9 @@ public class HillActivity extends AppCompatActivity {
 	*/
     private String Hill(String input, int[][] A, boolean crypt) throws Exception{
         if(!isInvertible(A)){ // si la matrice n'est pas inversible on renvoie une erreur
-            throw new Exception("La matrice n'est pas inversible dans Z/26Z : son déterminant n'est pas premier avec 26");
+            throw new Exception(getString(R.string.matrix_not_invertible));
         } else if(!isSquare(A)){ // si la matrice n'est pas carrée on renvoie une erreur (cas impossible normalement ?)
-            throw new Exception("La matrice doit être carrée");
+            throw new Exception(getString(R.string.matrix_not_square));
         }
         StringBuilder sb = new StringBuilder(input.length());
         int matSize = A.length;

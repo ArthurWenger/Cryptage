@@ -59,13 +59,12 @@ public class TRectActivity extends AppCompatActivity {
 		mBtRun.setOnClickListener(view -> {
             String input = StringOperations.getOnlyLetters(mEtInput.getText().toString()); // on recupère uniquement les lettres dans le message
 			if(input.isEmpty()){ // si le message est vide on affiche une erreur
-				Toast.makeText(this, "Le message à coder ou à décoder doit être un mot ou une phrase", Toast.LENGTH_LONG).show();
+				Toast.makeText(this, R.string.input_missing_word, Toast.LENGTH_LONG).show();
 				return;
 			}
-            String codec = mBtRun.getText().toString();
             String key = StringOperations.getOnlyLetters(mEtKey.getText().toString()); // on recupère uniquement les lettres dans la clé
 			if(key.isEmpty()){ // si la clé est vide on affiche une erreur
-				Toast.makeText(this, "La clé doit être un mot ou une phrase", Toast.LENGTH_LONG).show();
+				Toast.makeText(this, R.string.key_missing_word, Toast.LENGTH_LONG).show();
 				return;
 			}
 			String res = crypt ? codeTRect(input, key) : decodeTRect(input, key); // on code ou on décode le message en focntion de l'option choisie

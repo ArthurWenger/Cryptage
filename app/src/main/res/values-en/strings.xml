@@ -37,4 +37,19 @@
     <string name="sdes_default_rounds">2</string>
     <string name="code">Encrypt</string>
     <string name="decode">Decrypt</string>
+    <string name="input_missing">Input text is missing</string>
+    <string name="key_missing">The key is missing</string>
+    <string name="input_missing_word">The text to encrypt or decrypt should be a word or a sentence</string>
+    <string name="key_missing_word">The key should be a word or a sentence</string>
+    <string name="round_missing">Number of rounds missing</string>
+    <string name="letter_missing">The letter to replace in the polybius square is incorrect</string>
+    <string name="input_not_even">Decrypting a text of odd length. Please check the input text</string>
+    <string name="matrix_size_missing">Please enter a size for the square matrix representing the key</string>
+    <string name="matrix_size_0">The matrix size can\'t be 0…</string>
+    <string name="matrix_value_missing">Values are missing in the matrix</string>
+    <string name="matrix_not_invertible">The matrix is not invertible in Z/26Z : the determinant is not prime with 26</string>
+    <string name="matrix_not_square">The matrix should be square</string>
+    <string name="block_size_missing">The block size is missing</string>
+    <string name="block_size_0">The block size can\'t be 0…</string>
+    <string name="offset_missing">Please enter the offset value</string>
 </resources>

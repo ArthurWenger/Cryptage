@@ -85,7 +85,7 @@ public class SDESActivity extends AppCompatActivity {
             String key = mEtKey.getText().toString();
             String strRondes = mEtRondes.getText().toString();
             if(strRondes.isEmpty()){
-                Toast.makeText(this, "Veuillez saisir un nombre de rondes", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.round_missing, Toast.LENGTH_LONG).show();
             }
             int numRondes = Integer.parseInt(mEtRondes.getText().toString()); // on recupère le nombre de rondes à effectuer
             int hexInput;
@@ -205,7 +205,7 @@ public class SDESActivity extends AppCompatActivity {
         // Exemple avec une permutation à gauche de 1 sur le nombre binaire b = 1110 1100
         // on recupère les 7 derniers bits de b: 110 1100 qu'on décale de 1 sur la gauche: 1101 1000
         // puis on ajoute le premier bit de b sur le dernier bit du resultat: 1101 1001
-        return (int) (((bits & ((1 << complement)-1)) << decal) | (bits >>> complement));
+        return ((bits & ((1 << complement)-1)) << decal) | (bits >>> complement);
     }
 
     /* Fonction de Feistel

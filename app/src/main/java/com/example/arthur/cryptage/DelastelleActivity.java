@@ -70,7 +70,7 @@ public class DelastelleActivity extends AppCompatActivity {
 		mBtRun.setOnClickListener(view -> {
             String input = StringOperations.getOnlyLetters(mEtInput.getText().toString());
             if(input.isEmpty()){ // si le message est vide on affiche une erreur
-                Toast.makeText(this, "Le message à coder ou à décoder doit être un mot ou une phrase", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.input_missing_word, Toast.LENGTH_LONG).show();
                 return;
             }
             String codec = mBtRun.getText().toString();
@@ -79,18 +79,18 @@ public class DelastelleActivity extends AppCompatActivity {
             String key = mEtKey.getText().toString();
             String strReplace = StringOperations.getOnlyLetters(mEtLetter.getText().toString());
             if(strReplace.isEmpty()){ // si le champs contenant la lettre à remplacer est vide on affiche une erreur (champs vide ou champs contenant un caractère spécial)
-                Toast.makeText(this, "La lettre à remplacer dans le carré de polybe est incorrecte", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.letter_missing, Toast.LENGTH_LONG).show();
                 return;
             }
             char replace = strReplace.charAt(0);
             String strBlocSize = mEtBlocSize.getText().toString();
             if(strBlocSize.isEmpty()){ // si la taille des blocs est vide on affiche une erreur
-                Toast.makeText(this, "Veuillez saisir la taille des groupes de lettres", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.block_size_missing, Toast.LENGTH_LONG).show();
                 return;
             }
             int blocSize = Integer.valueOf(mEtBlocSize.getText().toString()); // la taille des blocs de lettres est nécessairement un entier en raison du champs android:inputtype="number" de l'EditText
             if(blocSize == 0){ // si la taille des blocs est égale à 0 on affiche une erreur
-                Toast.makeText(this, "La taille des blocs ne peut être 0...", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.block_size_0, Toast.LENGTH_LONG).show();
                 return;
             }
             polybe = new Polybe(key, replace); // on initialise un carré de Polybe avec le mot clé et la lettre de remplacement

@@ -36,4 +36,19 @@
     <string name="sdes_default_rounds">2</string>
     <string name="code">Coder</string>
     <string name="decode">Décoder</string>
+    <string name="input_missing">Veuillez saisir un message à coder ou décoder</string>
+    <string name="key_missing">Veuillez saisir une clé</string>
+    <string name="input_missing_word">Le message à coder ou à décoder doit être un mot ou une phrase</string>
+    <string name="key_missing_word">La clé doit être un mot ou une phrase</string>
+    <string name="round_missing">Veuillez saisir un nombre de rondes</string>
+    <string name="letter_missing">La lettre à remplacer dans le carré de polybe est incorrecte</string>
+    <string name="input_not_even">Décodage avec un message de longueur impaire. Vérifiez le message codé.</string>
+    <string name="matrix_size_missing">Veuillez saisir une taille pour la matrice carrée représentant la clé</string>
+    <string name="matrix_size_0">La taille de la matrice ne peut être 0…</string>
+    <string name="matrix_value_missing">Il manque des valeurs dans la matrice que vous avez saisie</string>
+    <string name="matrix_not_invertible">La matrice n\'est pas inversible dans Z/26Z : son déterminant n\'est pas premier avec 26</string>
+    <string name="matrix_not_square">La matrice doit être carrée</string>
+    <string name="block_size_missing">Veuillez saisir la taille des groupes de lettres</string>
+    <string name="block_size_0">La taille des blocs ne peut être 0…</string>
+    <string name="offset_missing">Veuillez saisir la valeur du décalage</string>
 </resources>

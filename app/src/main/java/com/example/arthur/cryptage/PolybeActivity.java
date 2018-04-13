@@ -71,7 +71,7 @@ public class PolybeActivity extends AppCompatActivity {
             String key = mEtKey.getText().toString();
             String strReplace = StringOperations.getOnlyLetters(mEtLetter.getText().toString());
             if(strReplace.isEmpty()){ // si le champs contenant la lettre à remplacer est vide on affiche une erreur (champs vide ou champs contenant un caractère spécial)
-                Toast.makeText(this, "La lettre à remplacer dans le carré de polybe est incorrecte", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.letter_missing, Toast.LENGTH_LONG).show();
                 return;
             }
             char replace = strReplace.charAt(0);
@@ -81,14 +81,14 @@ public class PolybeActivity extends AppCompatActivity {
             if (!crypt){ // si l'option de décodage est selectionnée
                 input = input.replaceAll("[^1-5]+", ""); // on remplace les caractères du message qui ne sont pas des chiffres compris entre 1 et 5
                 if(input.length()%2==1) { // si la taille du message n'est pas un multiple de 2 on affiche une erreur
-					Toast.makeText(this, "Décodage avec un message de longueur impaire.\nVérifiez le message codé.", Toast.LENGTH_LONG).show();
+					Toast.makeText(this, R.string.input_not_even, Toast.LENGTH_LONG).show();
 					return;
                 }
                 res = decodePolybe(input); // sinon on décode le message
             } else { // si on code le message
                 input = StringOperations.getOnlyLetters(input); // on recupère uniquement les lettres dans le message
                 if(input.isEmpty()){ // si le message est vide on affiche une erreur
-                    Toast.makeText(this, "Le message à coder ou à décoder doit être un mot ou une phrase", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, R.string.input_missing_word, Toast.LENGTH_LONG).show();
                     return;
                 }
                 res = codePolybe(input); // sinon on code le message
