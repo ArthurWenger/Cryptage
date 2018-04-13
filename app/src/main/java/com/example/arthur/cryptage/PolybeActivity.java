@@ -65,7 +65,6 @@ public class PolybeActivity extends AppCompatActivity {
 
 		mBtRun.setOnClickListener(view -> {
             String input = mEtInput.getText().toString();
-            String codec = mBtRun.getText().toString();
             // le texte a déjà été analysé par la classe Polybe après la saisie
             // si aucune clé n'est entrée alors le carré contient les lettre de de l'alphabet dans l'ordre (sans la lettre de remplacement)
             String key = mEtKey.getText().toString();

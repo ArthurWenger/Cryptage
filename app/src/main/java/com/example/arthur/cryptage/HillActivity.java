@@ -75,7 +75,6 @@ public class HillActivity extends AppCompatActivity {
                 Toast.makeText(this, R.string.input_missing_word, Toast.LENGTH_LONG).show();
                 return;
             }
-            String codec = mBtRun.getText().toString();
             String strSize = mEtMatSize.getText().toString();
             if(strSize.isEmpty()) { // si le champs contenant la taille de la matrice est n'est pas vide
                 Toast.makeText(this, R.string.matrix_size_missing, Toast.LENGTH_LONG).show();

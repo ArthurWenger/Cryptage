@@ -81,7 +81,6 @@ public class SDESActivity extends AppCompatActivity {
 
         mBtRun.setOnClickListener(view -> {
             String input = mEtInput.getText().toString();
-            String codec = mBtRun.getText().toString();
             String key = mEtKey.getText().toString();
             String strRondes = mEtRondes.getText().toString();
             if(strRondes.isEmpty()){
