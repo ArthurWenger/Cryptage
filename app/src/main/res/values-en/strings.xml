@@ -9,7 +9,7 @@
     <string name="title_activity_trect">TRectActivity</string>
     <string name="alphabet_etendu">Expanded alphabet:</string>
     <string name="result">Result:</string>
-    <string name="crypt">Encrypter</string>
+    <string name="crypt">Encrypt</string>
     <string name="generic_input">Text to encrypt / decrypt:</string>
     <string name="key">Key:</string>
     <string name="polybe_key">Keyword for the Polybius square:</string>
