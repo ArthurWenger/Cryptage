@@ -126,7 +126,7 @@ public class HillActivity extends AppCompatActivity {
 
     /* Fonction permettant de transformer le contenu d'une table contenant des EditText en tableau à 2 dimensions représentant une matrice
        En entrée: int size = la taille de la matrice
-       En sortie: un tableau à 2 dimensions représentatn la matrice
+       En sortie: un tableau à 2 dimensions représentant la matrice
      */
     private int[][] getKeyMatrix(int size) throws NumberFormatException {
         int[][] res = new int[size][size];
@@ -135,7 +135,7 @@ public class HillActivity extends AppCompatActivity {
             for(int j=0;j<size;j++){ // pour chaque element de la ligne
                 String number = ((EditText)(row.getChildAt(j))).getText().toString();
                 // on essaie de transformer la valeur contenue dans un EditText en entier
-                res[i][j]= Integer.parseInt(number); // si l'EditText ne contient rien une erreur sera renvoyée par la focntion
+                res[i][j]= Integer.parseInt(number); // si l'EditText ne contient rien une erreur sera renvoyée
             }
         }
         return res;
@@ -183,21 +183,28 @@ public class HillActivity extends AppCompatActivity {
        En sortie: le couple u et v tel que au + bv = pgcd(a,b)
      */
     private int[] euclideEtendu(int a, int b){
+        int invU=1, invV=1;  // variable inversant le signe final de u et v en fonction du signe des arguments a et b
+        if(a<0){ // si les arguments sont negatifs: |a|*(signe de a)*u + |b|*(signe b)*v = r
+            a=-a;
+            invU=-1;
+        }
+        if(b<0){
+            b=-b;
+            invV=-1;
+        }
+
         int u = 1, v = 0, r = a, rPrime = b, uPrime = 0, vPrime = 1;
         int q, us, rs, vs; // variables intermédiaires
 
         while(rPrime != 0){
             q = r/rPrime;
-            rs = r;
-            us = u;
-            vs = v;
-            r = rPrime;
-            u = uPrime;
-            v = vPrime;
+            rs = r; us = u; vs = v;
+            r = rPrime; u = uPrime; v = vPrime;
             rPrime = rs - q*rPrime;
             uPrime = us - q*uPrime;
             vPrime = vs - q*vPrime;
         }
+        u*=invU ; v*=invV;
         return new int[]{u,v};
     }
 
